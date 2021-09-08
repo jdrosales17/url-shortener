@@ -1,0 +1,31 @@
+<h1>Links</h1>
+
+<% if @links.empty? %>
+  <p>No links were created yet.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>URL</th>
+        <th>Token</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link.id %></td>
+          <td><%= link.url %></td>
+          <td><%= link.token %></td>
+          <td><%= link_to "Info", link_info_path(link_token: link.token) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% end %>
+
+<%= link_to "New Link", new_link_path %>

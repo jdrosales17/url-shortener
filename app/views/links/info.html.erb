@@ -1,0 +1,19 @@
+<h1><%= "Link ##{link.id}" %></h1>
+
+<table>
+  <tbody>
+    <tr>
+      <th>URL:</th>
+      <td><%= link.url %></td>
+    </tr>
+    <tr>
+      <th>Token:</th>
+      <td><%= link.token %></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Show", link_path(token: link.token) %>
+<%= link_to "Back", root_path %>
