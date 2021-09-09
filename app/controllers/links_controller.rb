@@ -22,12 +22,20 @@ class LinksController < ApplicationController
   end
 
   def show
+    create_or_update_visit
+
     redirect_to link.url
   end
 
   def info; end
 
   private
+
+  def create_or_update_visit
+    link.visits.find_or_create_by(ip_address: request.remote_ip).tap do |visit|
+      visit.increment!(:times)
+    end
+  end
 
   def link
     @link ||= Link.find_by!(token: link_token)

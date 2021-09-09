@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_163658) do
+ActiveRecord::Schema.define(version: 2021_09_09_012417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,15 @@ ActiveRecord::Schema.define(version: 2021_09_08_163658) do
     t.index ["token"], name: "index_links_on_token", unique: true
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.string "ip_address", null: false
+    t.integer "times", default: 0, null: false
+    t.bigint "link_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ip_address", "link_id"], name: "index_visits_on_ip_address_and_link_id", unique: true
+    t.index ["link_id"], name: "index_visits_on_link_id"
+  end
+
+  add_foreign_key "visits", "links"
 end

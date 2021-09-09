@@ -19,7 +19,7 @@
           <td><%= link.id %></td>
           <td><%= link.url %></td>
           <td><%= link.token %></td>
-          <td><%= link_to "Info", link_info_path(link_token: link.token) %></td>
+          <td><%= link_to 'Info', link_info_path(link_token: link.token) %></td>
         </tr>
       <% end %>
     </tbody>
@@ -28,4 +28,4 @@
   <br>
 <% end %>
 
-<%= link_to "New Link", new_link_path %>
+<%= link_to 'New Link', new_link_path %>

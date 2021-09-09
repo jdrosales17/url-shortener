@@ -10,10 +10,40 @@
       <th>Token:</th>
       <td><%= link.token %></td>
     </tr>
+    <tr>
+      <th>Visitor count:</th>
+      <td><%= link.visits.size %></td>
+    </tr>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to "Show", link_path(token: link.token) %>
-<%= link_to "Back", root_path %>
+<h3>Link visits</h3>
+
+<% if link.visits.empty? %>
+  <p>The link has no visits.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>IP address</th>
+        <th>Times</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% link.visits.each do |visit| %>
+        <tr>
+          <td><%= visit.ip_address %></td>
+          <td><%= visit.times %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% end %>
+
+<%= link_to 'Show', link_path(token: link.token), target: :_blank %>
+<%= link_to 'Back', root_path %>
