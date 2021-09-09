@@ -18,5 +18,6 @@ class Link < ApplicationRecord
   has_many :visits, dependent: :destroy
 
   validates :url, :token, presence: true
+  validates :url, url: true
   validates :token, uniqueness: true
 end

@@ -20,3 +20,5 @@ form input {
 }
 
 table th { text-align: left; }
+
+.form-errors { color: red }

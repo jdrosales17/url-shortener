@@ -1,4 +1,15 @@
 <h1>New Link</h1>
 
+<% if link.errors.any? %>
+  <div class="form-errors">
+    <p>Errors:</p>
+    <ul>
+      <% link.errors.full_messages.each do |error| %></h1>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render 'form', link: link %>
 <%= link_to 'Back', root_path %>
