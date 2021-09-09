@@ -1,24 +1,21 @@
-# README
+# URL Shortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application provides a URL shortener service and also serves as a link management system.
 
-Things you may want to cover:
+In order to run the app you need to install:
 
-* Ruby version
+- Ruby 3.0.0
+- Bundler (for that version of Ruby)
+- Yarn
+- Node
+- Postgres (if you are on Mac, Postgres.app is great)
 
-* System dependencies
+Once that is done, clone the repo and in the app's root directory run the following commands:
 
-* Configuration
+```sh
+bundle install
+rake db:setup
+bundle exec rails s
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Finally, open your browser and go to `localhost:3000`.
